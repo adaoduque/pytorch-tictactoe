@@ -1,0 +1,177 @@
+body {
+    background-color: rgba(37, 128, 79, 1);  /* fallback for old browsers */    
+}
+
+.table-game {
+    position: relative;
+    margin: 0 auto;
+    width: 400px;    
+}
+
+.table-game td {
+    text-align: center;
+    width: 110px;
+    height: 110px;
+}
+
+.table-game tr:not(:last-child) {
+    /*border-bottom: 1px solid #000000;
+    animation: widthExpand 5s normal;*/
+}
+
+.table-game td:not(:last-child) {
+    /*border-right: 1px solid #000000;
+    animation: widthExpand 5s normal;*/
+}
+
+.container-player {
+    position: relative;
+    width: 200px;
+    margin: 20px auto 30px auto;
+}
+
+.container-player-vez {
+    float:left;
+    text-align: center;
+    width: 100%;
+}
+
+.container-player-reiniciar, .container-player-novojogo {
+    background-color: coral;
+    color: white;
+    float: left;
+    text-align: center;
+    font-size: 15px;
+    width: 200px;    
+}
+
+.hidden {
+    display: none;
+}
+
+.relative {
+    position: relative !important;
+}
+
+.container-svg {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 400px;
+}
+
+
+.cont {
+    background-color: rgba(0, 0, 0, .5);
+    position: absolute;
+    margin: 0 0 0 200px;
+    height: 165px;
+    width: 200px;
+}
+
+.container-svg path {
+    stroke: #4cb07a;
+    stroke-width: 6px;
+    transition-duration: 0.375s;
+    -webkit-transition-duration: 0.375s;
+}
+
+.animate-path {
+    animation: dash .5s ease-in-out;
+    animation-direction: alternate-reverse;
+}
+
+
+.animate-path2 {
+    animation: dash2 1s ease-in-out;
+    animation-direction: alternate-reverse;
+}
+
+
+.color-white {
+    color: white
+}
+
+.span-game-x {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 4em;
+    color: #4cb07a
+}
+
+.span-game-o {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 4em;
+    color: #194f32
+}
+
+@keyframes dash {
+    to {
+      stroke-dashoffset: 200;
+    }
+}
+
+@keyframes dash2 {
+    to {
+      stroke-dashoffset: 700;
+    }
+}
+/*
+.Vu40Fd, svg.Vu40Fd {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.XAM5jb {
+    margin: auto;
+    right: 0;
+    z-index: 0;
+}
+.KD6xlc, .XAM5jb, .Z3VHAd {
+    transition: opacity .5s cubic-bezier(0.4,0.0,1,1),transform .5s cubic-bezier(0.4,0.0,1,1),visibility .5s step-end;
+    -webkit-transition: opacity .5s cubic-bezier(0.4,0.0,1,1),transform .5s cubic-bezier(0.4,0.0,1,1),visibility .5s step-end;
+}
+
+svg:not(:root) {
+    overflow: hidden;
+}
+.qLf5y {
+    color: rgba(0,0,0,.54);
+    margin: -16px -16px;
+}
+
+
+
+
+
+.qLf5y .XAM5jb path {
+    stroke: #0da192;
+    stroke-width: 6px;
+    transition-duration: 0.375s;
+    -webkit-transition-duration: 0.375s;
+}
+.qLf5y path:not(:only-of-type) {
+    transition-duration: 0.125s;
+    -webkit-transition-duration: 0.125s;
+}
+.qLf5y .hFJ9Ve {
+    fill: none;
+    stroke: black;
+    stroke-width: 16px;
+    transition: stroke-dashoffset 0.225s cubic-bezier(0.4,0,0.2,1);
+    -webkit-transition: stroke-dashoffset 0.225s cubic-bezier(0.4,0,0.2,1);
+}
+path[Attributes Style] {
+    d: path("M 108 83 L 6 83");
+}
+user agent stylesheet
+:not(svg) {
+    transform-origin: 0px 0px;
+}
+.qLf5y {
+    color: rgba(0,0,0,.54);
+    margin: -16px -16px;
+}
+*/
