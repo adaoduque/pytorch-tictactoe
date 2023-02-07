@@ -1,0 +1,9 @@
+tic-tac-toe/node_modules
+*__pycache__
+*vscode-server
+*.npm
+*.gnupg
+*.node_repl_history
+*.bash_history
+*.gitconfig
+flask-server/test.py
