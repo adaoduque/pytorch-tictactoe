@@ -16,18 +16,14 @@ app  =  flask.Flask(__name__)
 # Path do arquivo atual
 pwd  =  os.path.dirname(__file__)
 
-# Verifica a disponibilidade de GPU (CUDA), se não tiver, usa CPU
-# Verifica se existe GPU ativa
-isGpu    =  torch.cuda.is_available()
-
-# Determina o dispositivo (GPU ou CPU)
-device   =  torch.device("cuda" if isGpu else "cpu")
+# Determina o dispositivo (CPU)
+device   =  torch.device( "cpu" )
 
 # Instancia o agente
 app.agent  =  Agent( device )
 
 # Faz o carregamento do modelo treinado
-app.agent.loadModel( "/".join([pwd, 'model/AlphaTicTacToe.pth']) )
+app.agent.loadModel( "/".join([pwd, 'model/AlphaTicTacToe-cpu.pth']) )
 
 # Instancia o ambiente
 app.game = TicTacToe({
