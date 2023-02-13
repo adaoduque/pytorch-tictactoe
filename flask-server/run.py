@@ -39,8 +39,6 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 app.secret_key = 'Up3429B1S11mP619fjgueYofmsaSAcM37jvXF'
 app.config['SESSION_TYPE'] = 'filesystem'
 
-
-
 @app.route('/api/v1/savemodel', methods=['GET'])
 @cross_origin()
 def save_model():
