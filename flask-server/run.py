@@ -55,19 +55,30 @@ def new_game():
 @cross_origin()
 def step():
 
-    response =  {}
+    # Inicializa a variavel de resposta
+    response =  {
+        "direction_winner": None,
+        "action": None,
+        "table": None,
+        "done": None
+    }
+
+    # Obtem os dados do frontend
     data     =  request.get_json(force=True)
     mode     =  data["mode"]
     player   =  data["player"]
     done     =  True
 
-    response["direction_winner"] = 0
-    response["winner"] = ""
-
-    if mode == 1:
+    # I.A. VS Jogador Humano
+    if mode == 1:        
+        
+        # Obtem a jogada do jogador humano
         action   =  data["last_action"]
-        # IA vs Human Player
-        _, _, done  =  app.game.step(action, player='O')        
+
+        # Executa a jogada do jogador humano
+        _, _, done  =  app.game.step(action, player='O')
+
+        # Verifica se o jogo não terminou
         if not done:
 
             # Obtem o estado atual
@@ -82,11 +93,19 @@ def step():
             # Seta a ação
             response["action"] = action
 
-    response["table"]  =  app.game.getObservable().tolist()            
+    # Atribuiu o tabuleiro do game
+    response["table"]  =  app.game.getObservable().tolist()
+
+    # Verifica se a partida terminou
     if done:
+
+        # Se sim, obtem a direção da vitória (Caso existir)
         response["direction_winner"]  =  app.game.getWinnerDirection()
-        response["winner"] = 1 #app.game.getWinner()
+
+    # Seta o flag do status da partida
     response["done"]  =  done
+
+    # Retorna o json
     return jsonify(response)
 
 app.run(debug=True, host="0.0.0.0", port=3001)
