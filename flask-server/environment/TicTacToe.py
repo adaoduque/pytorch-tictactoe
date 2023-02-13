@@ -26,12 +26,6 @@ class TicTacToe:
         # Total de ações possíveis no game
         self.actionSpace  =  9
 
-        # Chances de vencer
-        self.chancesWinning = 0
-
-        # Chances de perder
-        self.chancesLoss    = 0
-
         # Direção em que o player ganhou no tabuleiro 
         self.winnerDirection =  -1
 
@@ -233,7 +227,7 @@ class TicTacToe:
         """
 
         # Define o fator de perda
-        factorLoss  =  0.5
+        factorLoss  =  0.7
 
         # Define o fator de vitória
         factorwinn  =  0.3
@@ -250,18 +244,8 @@ class TicTacToe:
         # Calcula as chances do player adversário de vencer
         chancesLoss     =  self.checkChancesWinning( oppoPlayer )
 
-        # Verifica se as chances de perder existem
-        if chancesLoss > 0:
-
-            # Se existirem, calcula a recompensa com base nas chances de vitória, derrota e os fatores
-            return (factorLoss*(self.chancesLoss*-1))+(factorwinn*(self.chancesWinning)) + (factorLoss*(chancesLoss*-1))+(factorwinn*(chancesWinning))
-        elif self.chancesLoss == 1 and chancesLoss == 0:
-
-            # Chances de derrota antes da ação era 1 e agora é nenhuma, calcula a recompensa
-            return ((factorLoss*(self.chancesLoss*-1)+1)+(factorwinn*self.chancesWinning)) + ((factorLoss*(chancesLoss*-1))+((factorwinn*chancesWinning)+(factorwinn*-1)))
-
-        # Se não entrar em nenhum dos ifs, retorna a recompensa com a nova formula
-        return (factorLoss*(chancesLoss*-1))+(factorwinn*chancesWinning)
+        # Calcula a recompensa e retorna
+        return (factorLoss*(chancesLoss*(-1)))+(factorwinn*chancesWinning)
 
     def getGameStatus(self) -> bool:
         """
@@ -318,18 +302,6 @@ class TicTacToe:
 
         # Verifica se é uma ação valida
         if self.game[action] == 0:
-
-            # Determina o player atual
-            currPlayer  =  self.pX if player == 'X' else self.pO
-
-            # Determina o player adversário            
-            oppoPlayer  =  self.pO if player == 'X' else self.pX
-
-            # Calcula as chances do player atual vencer
-            self.chancesWinning  =  self.checkChancesWinning( currPlayer )
-
-            # Calcula as chances do player adversário de vencer
-            self.chancesLoss     =  self.checkChancesWinning( oppoPlayer )
             
             # Faz a jogada na posição da matriz
             self.game[action]    =  p   
