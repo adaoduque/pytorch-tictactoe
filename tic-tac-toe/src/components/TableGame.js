@@ -62,7 +62,7 @@ class TableGame extends Component {
                 this._playStep(player, null, true)
             }, 1000);
         }else if( nextEvent === "waiting_10_seconds" ) {
-            this.timer = setInterval(this.countDown, 1000);
+            this.timer = setInterval(this.countDown, 0);
         }
     }
 
