@@ -150,7 +150,7 @@ else:
 ##### Otimizando a rede neural
 Agora que vocês entenderam como funciona a estratégia aplicada no treinamento, essa é a equação aplicada para otimizar a rede neural:
 
-$$\underbrace{Q(s,a)}_{\scriptstyle\text{Novo valor de Q}}=\underbrace{Q(s,a)}_{\scriptstyle\text{Valor atual de Q}}+\mkern-56mu\underset{\text{Taxa de aprendizagem}}{\underset{\Bigl|}{\alpha}}\mkern-50mu[\underbrace{R(s,a)}_{\scriptstyle\text{Recompensa}}+\mkern-30mu\underset{\text{Taxa de desconto}}{\underset{\Biggl|}{\gamma}}\mkern-75mu\overbrace{\max Q'(s',a')}^{\scriptstyle\substack{\text{A melhor recompensa, dado} \\ \text{o novo estado e todas as ações possíveis}}}\mkern-45mu-\underbrace{Q(s,a)}_{\scriptstyle\text{Valor atual de Q}}]$$
+![Equação](https://drive.google.com/uc?export=download&id=1CXHjMOMbo4lxxRVkWQ_QP4rzIH15XgQk)
 
 ## Experiências com a implementação
 Eu aprendi bastante com esse projeto, por mais simples que seja, a medida que eu treinava o agente, ele começou a apresentar alguns comportamentos que eu não esperava.
