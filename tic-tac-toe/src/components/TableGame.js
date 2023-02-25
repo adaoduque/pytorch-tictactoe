@@ -232,11 +232,6 @@ class TableGame extends Component {
                         <Button className={"container-player-novojogo "+this.props.startGame} onClick={() => { this._newGame() }} variant="dark" size="lg" active>
                             Nova Partida
                         </Button>
-                    </div>
-                    <div style={{ "marginTop": "10px", "float": "left" }}>
-                        <Button className={"container-player-novojogo "} onClick={() => { this.props.saveModel() }} variant="blue" size="lg" active>
-                            Salvar modelo
-                        </Button>
                     </div>                    
                 </div>                
             </div>
