@@ -1,0 +1,15 @@
+version: "3.7"
+services:
+  nodejs:
+    container_name: 'tictactoe-ai'
+    build:
+      context: .  
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+    ports:
+      - 3000:3000 # Node Server
+      - 3001:3001 # Flask Server
+    entrypoint: ["/bin/bash", "/home/entrypoint.sh"]
+    volumes:
+      - .:/home/node       
