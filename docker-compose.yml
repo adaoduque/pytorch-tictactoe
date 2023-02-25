@@ -1,0 +1,12 @@
+version: "3.7"
+services:
+  nodejs:
+    container_name: 'tictactoe-ai'
+    build:
+      context: .
+    ports:
+      - 3000:3000 # Node Server
+      - 3001:3001 # Flask Server
+    entrypoint: ["/bin/bash", "-c", "/home/node/entrypoint.sh"]
+    volumes:
+      - .:/home/node           
