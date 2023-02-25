@@ -233,11 +233,6 @@ class TableGame extends Component {
                             Nova Partida
                         </Button>
                     </div>
-                    <div style={{ "marginTop": "10px", "float": "left" }}>
-                        <Button className={"container-player-novojogo "} onClick={() => { this.props.saveModel() }} variant="blue" size="lg" active>
-                            Salvar modelo
-                        </Button>
-                    </div>                    
                 </div>                
             </div>
         );
