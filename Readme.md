@@ -310,4 +310,4 @@ O retorno é um json
 ## Créditos
 Dúvidas, sugestões, críticas, favor utilizar um dos canais:<br />
 `E-mail`: adaoduquesn@gmail.com<br />
-`Telegram`: @adaoDuque<br />
+`Telegram`: [@adaoDuque](https://t.me/adaoduque)<br />
