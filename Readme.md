@@ -302,7 +302,12 @@ curl --location 'localhost:3001/api/v1/step' \
 
 #### Retornos
 O retorno é um json
-* action: Inteiro com a ação da I.A.
-* table: Matriz, tabuleiro atual da partida
-* direction_winner: Inteiro com a direção da vitória (Caso existir), para desenhar a linha na direção do local onde ocorreu a vitória
-* done: Booleano, flag que informa se a partida terminou
+* `action`: Inteiro com a ação da I.A.
+* `table`: Matriz, tabuleiro atual da partida
+* `direction_winner`: Inteiro com a direção da vitória (Caso existir), para desenhar a linha na direção do local onde ocorreu a vitória
+* `done`: Booleano, flag que informa se a partida terminou
+
+## Créditos
+Dúvidas, sugestões, críticas, favor utilizar um dos canais:< br />
+`E-mail`: adaoduquesn@gmail.com< br />
+`Telegram`: @adaoDuque< br />
