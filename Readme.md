@@ -281,13 +281,13 @@ http://localhost:3000/tic-tac-toe
 ## API
 ### Nova partida
 ```text
-curl --location 'localhost:3001/api/v1/newgame'
+curl --location 'http://localhost:3001/api/v1/newgame'
 ```
 
 
 ### Realizar uma jogada
 ```text
-curl --location 'localhost:3001/api/v1/step' \
+curl --location 'http://localhost:3001/api/v1/step' \
 --header 'Content-Type: text/plain' \
 --data '{
     "mode": 1,
@@ -306,6 +306,11 @@ O retorno é um json
 * `table`: Matriz, tabuleiro atual da partida
 * `direction_winner`: Inteiro com a direção da vitória (Caso existir), para desenhar a linha na direção do local onde ocorreu a vitória
 * `done`: Booleano, flag que informa se a partida terminou
+
+## Posso rodar o treinamento eu mesmo ?
+Claro, criei um Google Colab com todo o código usado para treinar o modelo.<br />
+A vantagem do colab é que você pode treinar o agente usando GPU, mesmo que sua máquina não tenha uma.<br />
+Acesse o notebook: [Pytorch-TicTacToe Colab](https://colab.research.google.com/drive/19T1Uj_WEl3Mw8i9x4nvXqiL-XuJKXVRm?usp=sharing)
 
 ## Créditos
 Dúvidas, sugestões, críticas, favor utilizar um dos canais:<br />
