@@ -11,9 +11,9 @@ Como você deve saber, o jogo da velha não é complexo, ele é relativamente si
 ## Como funciona ?
 
 ### Ambiente
-O **ambiente** simula o jogo usando uma matriz simples de 9 posições.
-O Jogador **X** é representado pelo número ``1``
-O Jogador **O** é representado pelo número ``2``
+O **ambiente** simula o jogo usando uma matriz simples de 9 posições.<br />
+O Jogador **X** é representado pelo número ``1``<br />
+O Jogador **O** é representado pelo número ``2``<br />
 Vazio é representado pelo número `0`
 
 #### Ação e jogador
@@ -64,7 +64,7 @@ Então, as recompensas estão baseadas na seguinte equação:
 O agente se chama `AlphaTicTacToe`, ele foi treinado sem nenhum conhecimento prévio do jogo.
 
 #### Rede Neural
-O agente é implementado com uma rede neural densa (totalmente conectada).
+O agente é implementado com uma rede neural densa (totalmente conectada).<br />
 Com o total de 4 camadas, 1 de entrada, 2 camadas ocultas e 1 comada de saída, a estrutura fica da seguinte forma:
 ```python
 ----------------------------------------------------------------
@@ -91,15 +91,15 @@ Acredito que a estrutura da rede neural atualmente está inflada, acredito que p
 Vou deixar a otimização para depois, mas a ideia é ir melhorando cada vez mais o modelo
 
 #### Treinamento
-Se você chegou até aqui, vou assumir que você leu todo o texto acima e deve ter notado que eu disse que o ambiente (jogo), retorna uma matriz de 9 posições, porém, a camada de entrada de rede neural tem 27 neurônios, e você deve estar se perguntando o motivo hehe.
+Se você chegou até aqui, vou assumir que você leu todo o texto acima e deve ter notado que eu disse que o ambiente (jogo), retorna uma matriz de 9 posições, porém, a camada de entrada de rede neural tem 27 neurônios, e você deve estar se perguntando o motivo hehe.<br />
 Depois de testar inúmeras implementações, os testes corroboram que mandar a matriz de 9 posições não faz a rede neural aprender como eu espero que ela aprenda, então busquei novas técnicas e a que funcionou perfeitamente foi o `one hot encoding`.
 
 Para entender como funciona o one hot encoding, deixo o artigo do Arthur Lamblet [One-hot-encoding, o que é?](https://arthurlambletvaz.medium.com/one-hot-encoding-o-que-%C3%A9-cd2e8d302ae0)
 
-Então, como você deve ter lido no começo da documentação, a matriz tem 9 posições, e os valores 0, 1 e 2, para representar vazio, player X e player O.
+Então, como você deve ter lido no começo da documentação, a matriz tem 9 posições, e os valores 0, 1 e 2, para representar vazio, player X e player O.<br />
 Logo, temos 3 classes diferentes e com isso 9*3 == 27, por esse motivo temos 27 entradas na nossa rede neural.
 
-Ainda não é tudo, no treinamento, existe um método que tem como objetivo avaliar a ação do jogador com base nas ações do oponente.
+Ainda não é tudo, no treinamento, existe um método que tem como objetivo avaliar a ação do jogador com base nas ações do oponente.<br />
 Se o oponente fizer boas ações, as ações do oponente vão reduzir a recompensa do agente, mesmo que para o ambiente, o agente tenha feito bons movimentos.
 
 Essa avaliação dos movimentos, é feita apenas no final de cada partida, onde temos todos os movimentos que levaram a partida a terminar.
@@ -114,7 +114,7 @@ def avaliaJogadas(jogadas):
 Então, basicamente, se a jogada do oponente for boa, a jogada do agente será considerada não tão boa, podendo ficar até negativa, dependendo da recompensa recebida do ambiente
 
 #### Replay de experiência
-No treinamento do agente, existe um repositório de ações, estados e recompensas.
+No treinamento do agente, existe um repositório de ações, estados e recompensas.<br />
 Esse "replay" é usado para treinar o agente com situações que ele já passou, com as ações que ele já executou, com isso o agente consegue aprender quais as ações são boas e quais as ações são ruins.
 
 ##### Epsilon Ganancioso (Epsilon e-Greedy)
@@ -157,9 +157,9 @@ Eu aprendi bastante com esse projeto, por mais simples que seja, a medida que eu
 
 ### Comportamento 1
 O agente aprendia a jogar, mas ainda perdia algumas partidas, ele estava "quase" perfeito.
-O agente ficou viciado em ganhar sempre na mesma sequência, ele basicamente ficou viciado em ganhar em apenas uma posição.
-Quando o oponente jogava em uma casa onde o agente estava viciado, o agente perdia ou empatava partida.
-Como explicado algumas linhas acima, usei para treinar o agente a estratégia de epsilon e-greedy, o valor de epsilon inicial era de 0,9, epsilon decay: 1000 e o epsilon final: 0,3, onde dava cerca de 69% das ações.
+O agente ficou viciado em ganhar sempre na mesma sequência, ele basicamente ficou viciado em ganhar em apenas uma posição.<br />
+Quando o oponente jogava em uma casa onde o agente estava viciado, o agente perdia ou empatava partida.<br />
+Como explicado algumas linhas acima, usei para treinar o agente a estratégia de epsilon e-greedy, o valor de epsilon inicial era de 0,9, epsilon decay: 1000 e o epsilon final: 0,3, onde dava cerca de 69% das ações.<br />
 Quando entrava no if `Exploitation`, o agente usava o código:
 ```python
 
@@ -184,7 +184,7 @@ Esse método seleciona uma ação pseudo randômica, onde poderiam ser geradas a
 
 #### Correção
 A correção foi enviar uma lista de ações previstas dentro da partida atual e usar uma função para selecionar uma ação
-Essa estratégia fez com que o agente consiga testar mais locais no tabuleiro, sem que esse teste gere uma recompensa muito negativa.
+Essa estratégia fez com que o agente consiga testar mais locais no tabuleiro, sem que esse teste gere uma recompensa muito negativa.<br />
 O código ficou assim:
 ```python
 ...
@@ -201,8 +201,8 @@ O |   | O
   | X | X
   |   | X
 ```
-O agente deveria obrigatóriamente vencer a partida, jogando na posição `3`, porém, optava por jogar na posição `1`.
-Eu me perguntava, mas porque esse comportamento, sendo que a vitória iria dar a ele uma recompensa maior do que bloquear o oponente ?
+O agente deveria obrigatóriamente vencer a partida, jogando na posição `3`, porém, optava por jogar na posição `1`.<br />
+Eu me perguntava, mas porque esse comportamento, sendo que a vitória iria dar a ele uma recompensa maior do que bloquear o oponente ?<br />
 A resposta veio no método `store`, onde ele armazena os estados, ação, recompensa e o flag de termino:
 ```python
 def store(self, state, nextState, action, reward, done):
@@ -276,3 +276,33 @@ Se tudo correu bem, acesse o jogo no seu navegador:
 ```txt
 http://localhost:3000/tic-tac-toe
 ```
+![PytorchTicTacToe](https://drive.google.com/uc?export=download&id=1xqmhjTv0FS-o_enLsF2ezdsyCafRKZXx)
+
+## API
+### Nova partida
+```text
+curl --location 'localhost:3001/api/v1/newgame'
+```
+
+
+### Realizar uma jogada
+```text
+curl --location 'localhost:3001/api/v1/step' \
+--header 'Content-Type: text/plain' \
+--data '{
+    "mode": 1,
+    "player": player,
+    "last_action": lastAction
+}'
+```
+#### Parâmetros
+* `mode`: Inteiro que define o modo da partida. Suporta apenas o modo `1` (Humano VS IA)
+* `player`: String X ou O, nesse caso é sempre o `O`, pois a IA é o X
+* `last_action`: Ultima ação que o jogador humano executou
+
+#### Retornos
+O retorno é um json
+* action: Inteiro com a ação da I.A.
+* table: Matriz, tabuleiro atual da partida
+* direction_winner: Inteiro com a direção da vitória (Caso existir), para desenhar a linha na direção do local onde ocorreu a vitória
+* done: Booleano, flag que informa se a partida terminou
