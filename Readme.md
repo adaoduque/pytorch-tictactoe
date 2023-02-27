@@ -308,6 +308,6 @@ O retorno é um json
 * `done`: Booleano, flag que informa se a partida terminou
 
 ## Créditos
-Dúvidas, sugestões, críticas, favor utilizar um dos canais:< br />
-`E-mail`: adaoduquesn@gmail.com< br />
-`Telegram`: @adaoDuque< br />
+Dúvidas, sugestões, críticas, favor utilizar um dos canais:<br />
+`E-mail`: adaoduquesn@gmail.com<br />
+`Telegram`: @adaoDuque<br />
